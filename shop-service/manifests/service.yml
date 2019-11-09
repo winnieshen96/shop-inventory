@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: shop-service
+  name: shop-service
+  namespace: dev
+spec:
+  selector:
+    app: microservice-demo
+    name: shop-service
+  ports:
+  - protocol: TCP
+    port: 7500
+    targetPort: http 

@@ -1,0 +1,25 @@
+apiVersion : extensions/v1beta1
+kind: Deployment
+# cannot use variables, validation failure
+metadata:
+  name: inventory-service
+spec:
+  selector:
+    matchLabels:
+      app: microservice-demo
+      name: inventory-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        # these labels are used to identify itself
+        # eg. Service will find containers using these labels
+        app: microservice-demo
+        name: inventory-service 
+    spec:
+      containers:
+        - name: inventory-service
+          image: dba3f8f5d0df4cb492652988af71367c.azurecr.io/demo/inventory-service:v1
+          ports:
+          - name: http
+            containerPort: 6500

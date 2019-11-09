@@ -1,0 +1,24 @@
+apiVersion : extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shop-service 
+spec:
+  selector:
+    matchLabels:
+      app: microservice-demo
+      name: shop-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        # these labels are used to identify itself
+        # eg. Service will find containers using these labels
+        app: microservice-demo
+        name: shop-service
+    spec:
+      containers:
+        - name: shop-service
+          image: dba3f8f5d0df4cb492652988af71367c.azurecr.io/demo/shop-service:v1
+          ports:
+          - name: http
+            containerPort: 7500

@@ -1,0 +1,7 @@
+server:
+  port: 7500 # will start this service in this port
+spring:
+  application:
+    # will register to consul using the following name
+    # other services will lookup this service with this name
+    name: shop-service

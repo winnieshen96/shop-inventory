@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: inventory-service
+  name: inventory-service
+  namespace: dev
+spec:
+  selector:
+    app: microservice-demo
+    name: inventory-service
+  ports:
+  - protocol: TCP
+    port: 6500
+    targetPort: http   
